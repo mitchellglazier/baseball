@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Saber High Analytics
+  </h1>
+</div>
+
+<table mat-table [dataSource]="players" class="mat-elevation-z8" style="width: 100%;">
+  
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="pa">
+    <th mat-header-cell *matHeaderCellDef> PA </th>
+    <td mat-cell *matCellDef="let element"> {{element.pa}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="ba">
+    <th mat-header-cell *matHeaderCellDef> BA </th>
+    <td mat-cell *matCellDef="let element"> {{element.ba}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="slg">
+    <th mat-header-cell *matHeaderCellDef> SLG </th>
+    <td mat-cell *matCellDef="let element"> {{element.slg}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="obp">
+    <th mat-header-cell *matHeaderCellDef> OBP </th>
+    <td mat-cell *matCellDef="let element"> {{element.obp}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="runsCreated">
+    <th mat-header-cell *matHeaderCellDef> Runs Created </th>
+    <td mat-cell *matCellDef="let element"> {{element.obp * element.slg * element.pa}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
